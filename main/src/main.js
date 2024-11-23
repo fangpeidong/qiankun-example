@@ -25,16 +25,16 @@ registerMicroApps([
     props: {
       mainMsg: '我是主应用'
     }
+  },
+  {
+    name: 'Vue3Child',
+    entry: '//localhost:8092',
+    container: '#vue3-app',
+    activeRule: '/vue3-child',
+    props: {
+      mainMsg: '我是主应用'
+    }
   }
-  // {
-  //   name: 'Vue3Child',
-  //   entry: '//localhost:8092',
-  //   container: '#vue3-app',
-  //   activeRule: '/vue3-child',
-  //   props: {
-  //     mainMsg: '我是主应用'
-  //   }
-  // }
 ]);
 
 start();

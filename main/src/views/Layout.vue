@@ -5,10 +5,15 @@
       <el-container>
         <el-aside width="200px">
           <el-menu
-            default-active="/vue2-child"
+            :default-active="curPath"
             router
             class="el-menu-vertical-demo"
           >
+            <el-menu-item index="/home">
+              <i class="el-icon-s-home"></i>
+              <span slot="title">主应用</span>
+            </el-menu-item>
+
             <el-menu-item index="/vue2-child">
               <i class="el-icon-menu"></i>
               <span slot="title">子应用vue2</span>
@@ -23,6 +28,7 @@
         <el-main>
           <router-view />
           <div id="vue2-app"></div>
+          <div id="vue3-app"></div>
         </el-main>
       </el-container>
     </el-container>
@@ -31,7 +37,15 @@
 
 <script>
 export default {
-  name: 'HomeView'
+  name: 'Layout',
+  computed: {
+    curPath() {
+      return this.$route.path;
+    }
+  },
+  created() {
+    console.log('xxx', this.$route);
+  }
 };
 </script>
 
@@ -47,7 +61,6 @@ export default {
 .el-aside {
   background-color: #d3dce6;
   color: #333;
-  text-align: center;
   line-height: 200px;
 }
 

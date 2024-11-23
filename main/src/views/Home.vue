@@ -1,3 +1,3 @@
 <template>
-  <router-view />
+  <div>主应用</div>
 </template>
