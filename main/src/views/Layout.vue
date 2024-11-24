@@ -1,7 +1,10 @@
 <template>
   <div>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <el-button @click="addCount">count + 1</el-button>
+        count: {{ count }}
+      </el-header>
       <el-container>
         <el-aside width="200px">
           <el-menu
@@ -36,15 +39,31 @@
 </template>
 
 <script>
+import { action } from '@/micro/action';
 export default {
   name: 'Layout',
+  data() {
+    return {
+      count: 0
+    };
+  },
   computed: {
     curPath() {
       return this.$route.path;
     }
   },
   created() {
-    console.log('xxx', this.$route);
+    action.onGlobalStateChange((val) => {
+      this.count = val.count;
+    });
+  },
+  methods: {
+    addCount() {
+      this.count++;
+      action.setGlobalState({
+        count: this.count
+      });
+    }
   }
 };
 </script>

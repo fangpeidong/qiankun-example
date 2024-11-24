@@ -4,13 +4,17 @@ import VueRouter from 'vue-router';
 import routes from './router';
 import store from './store';
 import './public-path';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
 let router = null;
 let instance = null;
 function render(props = {}) {
-  const { container } = props;
+  const { container, action, commonData } = props;
   router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? '/vue2-child/' : '/',
     mode: 'history',
@@ -20,7 +24,13 @@ function render(props = {}) {
   instance = new Vue({
     router,
     store,
-    render: (h) => h(App)
+    render: (h) =>
+      h(App, {
+        props: {
+          action,
+          commonData
+        }
+      })
   }).$mount(container ? container.querySelector('#app') : '#app');
 }
 
@@ -30,12 +40,19 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap() {
-  console.log('[vue] vue app bootstraped');
+  // console.log('[vue] vue app bootstraped');
 }
 export async function mount(props) {
-  console.log('[vue] props from main framework', props);
-  render(props);
+  props.onGlobalStateChange &&
+    (await props.onGlobalStateChange(async (value) => {
+      props = {
+        ...props,
+        commonData: value
+      };
+      render(props);
+    }, true));
 }
+
 export async function unmount() {
   instance.$destroy();
   instance.$el.innerHTML = '';
