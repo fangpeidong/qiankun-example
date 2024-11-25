@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div>vue3-child: {{ mainCommonData.count }}</div>
-    <button @click="addCount">count+20</button>
+    <el-button @click="addCount">count + 20</el-button>
   </div>
 </template>
 

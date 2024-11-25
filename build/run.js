@@ -4,6 +4,7 @@ const path = require('path');
 const filePath = {
   'vue2-child': path.join(__dirname, '../vue2-child'),
   'vue3-child': path.join(__dirname, '../vue3-child'),
+  'react18-child': path.join(__dirname, '../react18-child'),
   main: path.join(__dirname, '../main')
 };
 // cd 子应用的目录 npm start 启动项目

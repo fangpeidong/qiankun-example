@@ -4,6 +4,8 @@ import routes from './router';
 import store from './store';
 import './public-path';
 import { createRouter, createWebHistory } from 'vue-router';
+import ElementPlus from 'element-plus';
+// import 'element-plus/dist/index.css';
 
 let app;
 function render(props = {}) {
@@ -22,6 +24,7 @@ function render(props = {}) {
   app
     .use(store)
     .use(router)
+    .use(ElementPlus)
     .mount(container ? container.querySelector('#app') : '#app');
 }
 
@@ -34,7 +37,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
  * bootstrap ： 在微应用初始化的时候调用一次，之后的生命周期里不再调用
  */
 export async function bootstrap() {
-  // console.log('bootstrap');
+  //
 }
 
 /**

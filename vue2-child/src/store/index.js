@@ -9,15 +9,7 @@ export default new Vuex.Store({
     globalState: {}
   },
   getters: {},
-  mutations: {
-    SET_GLOBAL_EVENT_BUS(state, payload) {
-      state.globalEventBus = payload;
-    },
-    SET_GLOBAL_STATE(state, payload) {
-      state.globalState = payload;
-      console.log('00000', state.globalState);
-    }
-  },
+  mutations: {},
   actions: {},
   modules: {}
 });

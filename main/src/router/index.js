@@ -17,7 +17,8 @@ const routes = [
         component: () => import('../views/Home.vue')
       },
       { path: 'vue2-child', name: 'Vue2Child' },
-      { path: 'vue3-child', name: 'Vue3Child' }
+      { path: 'vue3-child', name: 'Vue3Child' },
+      { path: 'react18-child', name: 'React18Child' }
     ]
   }
 ];

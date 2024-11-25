@@ -22,6 +22,16 @@ function useMicro() {
         mainMsg: '我是主应用',
         action
       }
+    },
+    {
+      name: 'React18Child',
+      entry: '//localhost:3000',
+      container: '#react18-app',
+      activeRule: '/react18-child',
+      props: {
+        mainMsg: '我是主应用',
+        action
+      }
     }
   ]);
 

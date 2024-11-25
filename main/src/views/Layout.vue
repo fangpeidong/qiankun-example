@@ -26,12 +26,18 @@
               <i class="el-icon-setting"></i>
               <span slot="title">子应用vue3</span>
             </el-menu-item>
+
+            <el-menu-item index="/react18-child">
+              <i class="el-icon-setting"></i>
+              <span slot="title">子应用react18</span>
+            </el-menu-item>
           </el-menu>
         </el-aside>
         <el-main>
           <router-view />
           <div id="vue2-app"></div>
           <div id="vue3-app"></div>
+          <div id="react18-app"></div>
         </el-main>
       </el-container>
     </el-container>
